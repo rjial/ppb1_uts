@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicketBox201111027_RizalKelasA">
         <activity
+            android:name=".PesanTiketKonser"
+            android:exported="false" />
+        <activity
+            android:name=".OfficialKonser"
+            android:exported="false" />
+        <activity
+            android:name=".ItemKonser"
+            android:exported="false" />
+        <activity
+            android:name=".ListKonser"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

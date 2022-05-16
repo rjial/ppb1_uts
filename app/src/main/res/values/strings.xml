@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">TicketBox 201111027_Rizal Kelas-A</string>
+    <string name="pesan_tiket">Pesan Tiket</string>
+    <string name="konser">Konser</string>
+    <string name="identitas_diri">Identitas Diri</string>
+    <string name="pilihan">Pilihan</string>
+    <string name="ktp">KTP</string>
+    <string name="sim">SIM</string>
+    <string name="kartu_pelajar">Kartu Pelajar</string>
+    <string name="paspor">Paspor</string>
+    <string name="pembayaran">Pembayaran</string>
+    <string name="transfer_bank">Transfer Bank</string>
+    <string name="kartu_kredit">Kartu Kredit</string>
+    <string name="jumlah_transfer">Jumlah Transfer</string>
+    <string name="tanggal_transfer">Tanggal Transfer</string>
+    <string name="via_bank">Via Bank</string>
+    <string name="no_ac">No. AC</string>
+    <string name="atas_nama">Atas Nama</string>
 </resources>
