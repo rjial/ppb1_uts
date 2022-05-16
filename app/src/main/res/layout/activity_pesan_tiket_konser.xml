@@ -91,6 +91,38 @@
 
                         <!--                </LinearLayout>-->
                     </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kota"
+                        android:layout_marginTop="10dp"/>
+                    <LinearLayout
+                        android:id="@+id/lytKotaKonser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="10dp">
+                        <CheckBox
+                            android:id="@+id/cbKotaMalang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/malang"/>
+                        <CheckBox
+                            android:id="@+id/cbKotaJakarta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/jakarta"/>
+                        <CheckBox
+                            android:id="@+id/cbKotaBali"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/bali"/>
+                        <CheckBox
+                            android:id="@+id/cbKotaSurabaya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/surabaya"/>
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
             <com.google.android.material.card.MaterialCardView
@@ -205,6 +237,28 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/jumlah_pembayaran"/>
+                    <TextView
+                        android:id="@+id/txtJmlhPembayaran"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="24sp"
+                        android:text="Rp. X.XXX.XXX,XX"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="10dp">
                     <TextView
@@ -214,6 +268,7 @@
                         />
 
                         <RadioGroup
+                            android:id="@+id/rgPembayaran"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
                             <RadioButton
@@ -228,6 +283,7 @@
                                 android:text="@string/kartu_kredit"/>
                         </RadioGroup>
                         <LinearLayout
+                            android:id="@+id/lytTransferBank"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
@@ -289,6 +345,7 @@
                             </com.google.android.material.textfield.TextInputLayout>
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/lytKartuKredit"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"

@@ -16,4 +16,9 @@
     <string name="via_bank">Via Bank</string>
     <string name="no_ac">No. AC</string>
     <string name="atas_nama">Atas Nama</string>
+    <string name="malang">Malang</string>
+    <string name="jakarta">Jakarta</string>
+    <string name="bali">Bali</string>
+    <string name="surabaya">Surabaya</string>
+    <string name="jumlah_pembayaran">Jumlah Pembayaran</string>
 </resources>

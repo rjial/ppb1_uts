@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Contoh"/>
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardKonser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -26,7 +27,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:hint="Qty">
+                android:hint="Qty"
+                android:layout_marginTop="10dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtQtyKonserItem"
                     android:layout_width="match_parent"
