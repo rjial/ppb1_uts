@@ -10,9 +10,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/header"
+        android:background="@color/white"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +43,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/pesan_tiket"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -65,7 +66,7 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/daftar_konser"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -88,15 +89,16 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/official_web"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pesan Tiket"
+                    android:text="Official"
                     android:textColor="@color/white"
                     android:gravity="center_horizontal"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/lytInfoApp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:orientation="vertical"
@@ -110,11 +112,11 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="140dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:src="@drawable/info_app"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pesan Tiket"
+                    android:text="Info"
                     android:textColor="@color/white"
                     android:gravity="center_horizontal"/>
             </LinearLayout>

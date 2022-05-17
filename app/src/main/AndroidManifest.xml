@@ -3,6 +3,7 @@
     package="com.rizal.utsa.ticketbox">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TicketBox201111027_RizalKelasA">
+        <activity
+            android:name=".InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FinalTiket"
+            android:exported="false" />
         <activity
             android:name=".PesanTiketKonser"
             android:exported="false" />

@@ -5,13 +5,18 @@
       <map>
         <entry key="../../../../../../../../../../home/rjial/.gradle/caches/transforms-3/a911bf5df232e3fd12bbd44240a4fea2/transformed/material-1.6.0/res/layout/material_clock_period_toggle.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/bg_item.xml" value="0.1675" />
+        <entry key="app/src/main/res/layout/activity_final_tiket.xml" value="0.42207792207792205" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_item_konser.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_list_konser.xml" value="0.17119565217391305" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_official_konser.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_pesan_tiket_konser.xml" value="0.32046014790468363" />
         <entry key="app/src/main/res/layout/item_konser.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/layout_tiket.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/list_item.xml" value="0.203125" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.195" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.195" />
       </map>
     </option>
   </component>

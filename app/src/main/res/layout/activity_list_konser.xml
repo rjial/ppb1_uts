@@ -9,9 +9,10 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/header"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
+        android:background="@color/white"
+        android:scaleType="fitCenter"
         />
     <ListView
         android:id="@+id/lvKonser"

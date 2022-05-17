@@ -9,8 +9,6 @@
     <string name="kartu_pelajar">Kartu Pelajar</string>
     <string name="paspor">Paspor</string>
     <string name="pembayaran">Pembayaran</string>
-    <string name="transfer_bank">Transfer Bank</string>
-    <string name="kartu_kredit">Kartu Kredit</string>
     <string name="jumlah_transfer">Jumlah Transfer</string>
     <string name="tanggal_transfer">Tanggal Transfer</string>
     <string name="via_bank">Via Bank</string>
@@ -22,4 +20,6 @@
     <string name="surabaya">Surabaya</string>
     <string name="jumlah_pembayaran">Jumlah Pembayaran</string>
     <string name="daftar_konser">Daftar Konser</string>
+    <string name="transfer_bank">Transfer Bank</string>
+    <string name="kartu_kredit">Kartu Kredit</string>
 </resources>

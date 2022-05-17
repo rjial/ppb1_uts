@@ -1,17 +1,25 @@
 package com.rizal.utsa.ticketbox.model;
 
-import android.util.Pair;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Tiket {
+public class Tiket implements Parcelable {
     public void setKota(String kota) {
         this.kota = kota;
+    }
+
+    public int getJmlhBayarKK() {
+        return jmlhBayarKK;
+    }
+
+    public void setJmlhBayarKK(int jmlhBayarKK) {
+        this.jmlhBayarKK = jmlhBayarKK;
     }
 
     public enum Pembayaran {
@@ -19,6 +27,11 @@ public class Tiket {
         KARTU_KREDIT
     }
     public static List<String> listKotaKonser = Arrays.asList("Malang", "Jakarta", "Bali", "Surabaya");
+
+    public Map<Konser, Integer> getListKonser() {
+        return listKonser;
+    }
+
     private Map<Konser, Integer> listKonser = new HashMap<>();
     private LocalDateTime tanggalBeli;
 //    private List<String> listKota = new ArrayList<>();
@@ -33,11 +46,12 @@ public class Tiket {
     private int jmlhTransfer;
     private LocalDateTime tglTransfer;
     private String bankTransfer;
-    private int noAC;
+    private String noAC;
     private String namaPembayar;
     private String namaKK;
     private String atasNamaKK;
-    private LocalDateTime tglBayar;
+    private int jmlhBayarKK;
+    private LocalDateTime tglBayarKK;
     public Tiket() {
         listKonser.clear();
     }
@@ -90,7 +104,7 @@ public class Tiket {
         return bankTransfer;
     }
 
-    public int getNoAC() {
+    public String getNoAC() {
         return noAC;
     }
 
@@ -106,8 +120,8 @@ public class Tiket {
         return atasNamaKK;
     }
 
-    public LocalDateTime getTglBayar() {
-        return tglBayar;
+    public LocalDateTime getTglBayarKK() {
+        return tglBayarKK;
     }
 
     public void addKonser(Konser konser, int qty) {
@@ -119,6 +133,7 @@ public class Tiket {
     public void removeKonser(Konser konser) {
         listKonser.remove(konser);
     }
+
 
     public int calcHarga() {
         int harga = 0;
@@ -171,7 +186,7 @@ public class Tiket {
         this.bankTransfer = bankTransfer;
     }
 
-    public void setNoAC(int noAC) {
+    public void setNoAC(String noAC) {
         this.noAC = noAC;
     }
 
@@ -187,7 +202,109 @@ public class Tiket {
         this.atasNamaKK = atasNamaKK;
     }
 
-    public void setTglBayar(LocalDateTime tglBayar) {
-        this.tglBayar = tglBayar;
+    public void setTglBayarKK(LocalDateTime tglBayarKK) {
+        this.tglBayarKK = tglBayarKK;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.listKonser.size());
+        for (Map.Entry<Konser, Integer> entry : this.listKonser.entrySet()) {
+            dest.writeParcelable(entry.getKey(), flags);
+            dest.writeValue(entry.getValue());
+        }
+        dest.writeSerializable(this.tanggalBeli);
+        dest.writeString(this.kota);
+        dest.writeString(this.noID);
+        dest.writeString(this.jenisID);
+        dest.writeString(this.namaPembeli);
+        dest.writeString(this.emailPembeli);
+        dest.writeString(this.telpPembeli);
+        dest.writeString(this.alamatPembeli);
+        dest.writeInt(this.pembayaranPembeli == null ? -1 : this.pembayaranPembeli.ordinal());
+        dest.writeInt(this.jmlhTransfer);
+        dest.writeSerializable(this.tglTransfer);
+        dest.writeString(this.bankTransfer);
+        dest.writeString(this.noAC);
+        dest.writeString(this.namaPembayar);
+        dest.writeString(this.namaKK);
+        dest.writeString(this.atasNamaKK);
+        dest.writeInt(this.jmlhBayarKK);
+        dest.writeSerializable(this.tglBayarKK);
+    }
+
+    public void readFromParcel(Parcel source) {
+        int listKonserSize = source.readInt();
+        this.listKonser = new HashMap<Konser, Integer>(listKonserSize);
+        for (int i = 0; i < listKonserSize; i++) {
+            Konser key = source.readParcelable(Konser.class.getClassLoader());
+            Integer value = (Integer) source.readValue(Integer.class.getClassLoader());
+            this.listKonser.put(key, value);
+        }
+        this.tanggalBeli = (LocalDateTime) source.readSerializable();
+        this.kota = source.readString();
+        this.noID = source.readString();
+        this.jenisID = source.readString();
+        this.namaPembeli = source.readString();
+        this.emailPembeli = source.readString();
+        this.telpPembeli = source.readString();
+        this.alamatPembeli = source.readString();
+        int tmpPembayaranPembeli = source.readInt();
+        this.pembayaranPembeli = tmpPembayaranPembeli == -1 ? null : Pembayaran.values()[tmpPembayaranPembeli];
+        this.jmlhTransfer = source.readInt();
+        this.tglTransfer = (LocalDateTime) source.readSerializable();
+        this.bankTransfer = source.readString();
+        this.noAC = source.readString();
+        this.namaPembayar = source.readString();
+        this.namaKK = source.readString();
+        this.atasNamaKK = source.readString();
+        this.jmlhBayarKK = source.readInt();
+        this.tglBayarKK = (LocalDateTime) source.readSerializable();
+    }
+
+    protected Tiket(Parcel in) {
+        int listKonserSize = in.readInt();
+        this.listKonser = new HashMap<Konser, Integer>(listKonserSize);
+        for (int i = 0; i < listKonserSize; i++) {
+            Konser key = in.readParcelable(Konser.class.getClassLoader());
+            Integer value = (Integer) in.readValue(Integer.class.getClassLoader());
+            this.listKonser.put(key, value);
+        }
+        this.tanggalBeli = (LocalDateTime) in.readSerializable();
+        this.kota = in.readString();
+        this.noID = in.readString();
+        this.jenisID = in.readString();
+        this.namaPembeli = in.readString();
+        this.emailPembeli = in.readString();
+        this.telpPembeli = in.readString();
+        this.alamatPembeli = in.readString();
+        int tmpPembayaranPembeli = in.readInt();
+        this.pembayaranPembeli = tmpPembayaranPembeli == -1 ? null : Pembayaran.values()[tmpPembayaranPembeli];
+        this.jmlhTransfer = in.readInt();
+        this.tglTransfer = (LocalDateTime) in.readSerializable();
+        this.bankTransfer = in.readString();
+        this.noAC = in.readString();
+        this.namaPembayar = in.readString();
+        this.namaKK = in.readString();
+        this.atasNamaKK = in.readString();
+        this.jmlhBayarKK = in.readInt();
+        this.tglBayarKK = (LocalDateTime) in.readSerializable();
+    }
+
+    public static final Parcelable.Creator<Tiket> CREATOR = new Parcelable.Creator<Tiket>() {
+        @Override
+        public Tiket createFromParcel(Parcel source) {
+            return new Tiket(source);
+        }
+
+        @Override
+        public Tiket[] newArray(int size) {
+            return new Tiket[size];
+        }
+    };
 }
