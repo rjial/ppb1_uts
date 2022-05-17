@@ -18,7 +18,7 @@ public class OfficialKonser extends AppCompatActivity {
         wvOfficial = (WebView) findViewById(R.id.wvOfficial);
         wvOfficial.setWebViewClient(new WvOfficial());
         wvOfficial.getSettings().setJavaScriptEnabled(true);
-        wvOfficial.loadUrl("https://karcis.co.id/");
+        wvOfficial.loadUrl("https://ticket.akb48-group.com/");
     }
 
     public class WvOfficial extends WebViewClient {

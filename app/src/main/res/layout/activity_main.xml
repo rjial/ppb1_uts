@@ -74,6 +74,7 @@
                     android:gravity="center_horizontal"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/lytOfficialWV"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:orientation="vertical"

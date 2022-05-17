@@ -10,7 +10,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Tiket {
-    enum Pembayaran {
+    public void setKota(String kota) {
+        this.kota = kota;
+    }
+
+    public enum Pembayaran {
         TRANSFER_BANK,
         KARTU_KREDIT
     }

@@ -2,16 +2,20 @@ package com.rizal.utsa.ticketbox;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.icu.text.DecimalFormatSymbols;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -25,6 +29,8 @@ import com.rizal.utsa.ticketbox.model.Tiket;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,10 +38,12 @@ public class PesanTiketKonser extends AppCompatActivity {
 
     private LinearLayout lytCBKonser, lytKotaKonser, lytTransferBank, lytKartuKredit;
     private TextView txtJmlhPembayaran;
-    private RadioGroup rgPembayaran;
+    private RadioGroup rgPembayaran, rgPilihanIDDiri;
     private AutoCompleteTextView cbxKotaKonser;
+    private TextInputEditText etxtTglBeli;
     private Locale myIndonesianLocale = new Locale("in", "ID");
     private NumberFormat formater = NumberFormat.getCurrencyInstance(myIndonesianLocale);
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,9 +110,11 @@ public class PesanTiketKonser extends AppCompatActivity {
                 if (rb.getText().toString().equals(getResources().getString(R.string.transfer_bank))) {
                     lytTransferBank.setVisibility(View.VISIBLE);
                     lytKartuKredit.setVisibility(View.GONE);
+                    tiket.setPembayaranPembeli(Tiket.Pembayaran.TRANSFER_BANK);
                 } else if (rb.getText().toString().equals(getResources().getString(R.string.kartu_kredit))) {
                     lytTransferBank.setVisibility(View.GONE);
                     lytKartuKredit.setVisibility(View.VISIBLE);
+                    tiket.setPembayaranPembeli(Tiket.Pembayaran.KARTU_KREDIT);
                 } else {
                     lytTransferBank.setVisibility(View.GONE);
                     lytKartuKredit.setVisibility(View.GONE);
@@ -112,5 +122,42 @@ public class PesanTiketKonser extends AppCompatActivity {
 
             }
         });
+        final LocalDateTime[] dateTime = {LocalDateTime.now()};
+        etxtTglBeli = (TextInputEditText) findViewById(R.id.etxtTglBeli);
+        DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+                dateTime[0] = LocalDateTime.of(i, i1, i2, 0,0,0);
+                etxtTglBeli.setText(formatter.format(dateTime[0]));
+                Log.d("DATE", formatter.format(dateTime[0]));
+            }
+        };
+        etxtTglBeli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(PesanTiketKonser.this, date, dateTime[0].getYear(), dateTime[0].getMonthValue(), dateTime[0].getDayOfMonth()).show();
+            }
+        });
+        cbxKotaKonser.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                tiket.setKota(Tiket.listKotaKonser.get(i).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        rgPilihanIDDiri = (RadioGroup) findViewById(R.id.rgPilihanIDDiri);
+        rgPilihanIDDiri.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                View view = radioGroup.getRootView();
+                RadioButton rb = view.findViewById(i);
+                tiket.setJenisID(rb.getText().toString());
+            }
+        });
+
     }
 }
