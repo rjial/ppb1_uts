@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_official_konser.xml" value="0.203125" />
         <entry key="app/src/main/res/layout/activity_pesan_tiket_konser.xml" value="0.32046014790468363" />
         <entry key="app/src/main/res/layout/item_konser.xml" value="0.203125" />
+        <entry key="app/src/main/res/layout/list_item.xml" value="0.203125" />
       </map>
     </option>
   </component>

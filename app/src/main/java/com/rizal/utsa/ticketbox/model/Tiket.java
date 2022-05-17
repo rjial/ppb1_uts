@@ -4,6 +4,7 @@ import android.util.Pair;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,9 +14,11 @@ public class Tiket {
         TRANSFER_BANK,
         KARTU_KREDIT
     }
+    public static List<String> listKotaKonser = Arrays.asList("Malang", "Jakarta", "Bali", "Surabaya");
     private Map<Konser, Integer> listKonser = new HashMap<>();
     private LocalDateTime tanggalBeli;
-    private List<String> listKota = new ArrayList<>();
+//    private List<String> listKota = new ArrayList<>();
+    private String kota;
     private String noID;
     private String jenisID;
     private String namaPembeli;
@@ -33,7 +36,74 @@ public class Tiket {
     private LocalDateTime tglBayar;
     public Tiket() {
         listKonser.clear();
-        listKota.clear();
+    }
+
+    public LocalDateTime getTanggalBeli() {
+        return tanggalBeli;
+    }
+
+    public String getKota() {
+        return kota;
+    }
+
+    public String getNoID() {
+        return noID;
+    }
+
+    public String getJenisID() {
+        return jenisID;
+    }
+
+    public String getNamaPembeli() {
+        return namaPembeli;
+    }
+
+    public String getEmailPembeli() {
+        return emailPembeli;
+    }
+
+    public String getTelpPembeli() {
+        return telpPembeli;
+    }
+
+    public String getAlamatPembeli() {
+        return alamatPembeli;
+    }
+
+    public Pembayaran getPembayaranPembeli() {
+        return pembayaranPembeli;
+    }
+
+    public int getJmlhTransfer() {
+        return jmlhTransfer;
+    }
+
+    public LocalDateTime getTglTransfer() {
+        return tglTransfer;
+    }
+
+    public String getBankTransfer() {
+        return bankTransfer;
+    }
+
+    public int getNoAC() {
+        return noAC;
+    }
+
+    public String getNamaPembayar() {
+        return namaPembayar;
+    }
+
+    public String getNamaKK() {
+        return namaKK;
+    }
+
+    public String getAtasNamaKK() {
+        return atasNamaKK;
+    }
+
+    public LocalDateTime getTglBayar() {
+        return tglBayar;
     }
 
     public void addKonser(Konser konser, int qty) {
@@ -53,12 +123,6 @@ public class Tiket {
         }
         return harga;
     }
-
-
-    public void addKota(String kota) {
-        listKota.add(kota);
-    }
-
     public void setTanggalBeli(LocalDateTime tanggalBeli) {
         this.tanggalBeli = tanggalBeli;
     }

@@ -8,8 +8,11 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -30,6 +33,7 @@ public class PesanTiketKonser extends AppCompatActivity {
     private LinearLayout lytCBKonser, lytKotaKonser, lytTransferBank, lytKartuKredit;
     private TextView txtJmlhPembayaran;
     private RadioGroup rgPembayaran;
+    private AutoCompleteTextView cbxKotaKonser;
     private Locale myIndonesianLocale = new Locale("in", "ID");
     private NumberFormat formater = NumberFormat.getCurrencyInstance(myIndonesianLocale);
     @Override
@@ -37,11 +41,13 @@ public class PesanTiketKonser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesan_tiket_konser);
         lytCBKonser = (LinearLayout) findViewById(R.id.lytCBKonser);
-        lytKotaKonser = (LinearLayout) findViewById(R.id.lytKotaKonser);
         txtJmlhPembayaran = (TextView) findViewById(R.id.txtJmlhPembayaran);
         lytTransferBank = (LinearLayout) findViewById(R.id.lytTransferBank);
         lytKartuKredit = (LinearLayout) findViewById(R.id.lytKartuKredit);
         rgPembayaran = (RadioGroup) findViewById(R.id.rgPembayaran);
+        cbxKotaKonser = (AutoCompleteTextView) findViewById(R.id.cbxKotaKonser);
+        ArrayAdapter<String> arrayKota = new ArrayAdapter<String>(this, R.layout.list_item, Tiket.listKotaKonser);
+        cbxKotaKonser.setAdapter(arrayKota);
         Tiket tiket = new Tiket();
         List<Konser> listKonser = Konser.listKonser;
         for(Konser konser: listKonser) {
@@ -61,6 +67,7 @@ public class PesanTiketKonser extends AppCompatActivity {
                         tiket.addKonser(konser, 0);
                         txtJmlhPembayaran.setText(formater.format(tiket.calcHarga()));
                         TextInputEditText txtQtyKonserItem = child.findViewById(R.id.txtQtyKonserItem);
+                        txtQtyKonserItem.setText("0");
                         txtQtyKonserItem.addTextChangedListener(new TextWatcher() {
                             @Override
                             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

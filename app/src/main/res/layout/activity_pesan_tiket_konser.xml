@@ -55,6 +55,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
+                        android:layout_marginTop="10dp"
                         >
                         <!--                <LinearLayout-->
                         <!--                    android:layout_width="match_parent"-->
@@ -91,38 +92,18 @@
 
                         <!--                </LinearLayout>-->
                     </LinearLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Kota"
-                        android:layout_marginTop="10dp"/>
-                    <LinearLayout
-                        android:id="@+id/lytKotaKonser"
+                    <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:hint="Kota"
                         android:layout_marginTop="10dp">
-                        <CheckBox
-                            android:id="@+id/cbKotaMalang"
-                            android:layout_width="wrap_content"
+                        <AutoCompleteTextView
+                            android:id="@+id/cbxKotaKonser"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/malang"/>
-                        <CheckBox
-                            android:id="@+id/cbKotaJakarta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/jakarta"/>
-                        <CheckBox
-                            android:id="@+id/cbKotaBali"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/bali"/>
-                        <CheckBox
-                            android:id="@+id/cbKotaSurabaya"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/surabaya"/>
-                    </LinearLayout>
+                            android:inputType="none"/>
+                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
             <com.google.android.material.card.MaterialCardView
