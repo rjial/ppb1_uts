@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
-    public LinearLayout lytItemPesanTiket;
+    public LinearLayout lytItemPesanTiket, lytDaftarKonser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, PesanTiketKonser.class);
+                startActivity(intent);
+            }
+        });
+        lytDaftarKonser = (LinearLayout) findViewById(R.id.lytDaftarKonser);
+        lytDaftarKonser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ListKonser.class);
                 startActivity(intent);
             }
         });

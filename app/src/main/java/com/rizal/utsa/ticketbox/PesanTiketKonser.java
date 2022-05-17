@@ -50,6 +50,7 @@ public class PesanTiketKonser extends AppCompatActivity {
         cbxKotaKonser.setAdapter(arrayKota);
         Tiket tiket = new Tiket();
         List<Konser> listKonser = Konser.listKonser;
+        txtJmlhPembayaran.setText(formater.format(tiket.calcHarga()));
         for(Konser konser: listKonser) {
             View child = getLayoutInflater().inflate(R.layout.item_konser, null);
             lytCBKonser.addView(child);
